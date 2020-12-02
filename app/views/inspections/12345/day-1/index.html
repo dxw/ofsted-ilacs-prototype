@@ -5,7 +5,7 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% block pageTitle %}
-  Sign in - {{ serviceName }}
+  Day 1 - 12345 - {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -49,7 +49,7 @@
             classes: 'govuk-!-width-one-third'
           },
           {
-            text: "Status",
+            text: "Actions",
             classes: 'govuk-!-width-one-third'
           }
         ],
@@ -62,7 +62,7 @@
               text: "10:03am, 9 December 2020"
             },
             {
-              html: govukTag({ text: "In progress", classes: "govuk-tag--blue" })
+              html: "<a class='govuk-link' href='/inspections/12345/day-1/form'>Edit</a>"
             }
           ]
         ]
