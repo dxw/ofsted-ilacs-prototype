@@ -1,0 +1,86 @@
+
+{% extends "layout.html" %}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  Sign in - {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "My dashboard",
+        href: "/dashboard"
+      },
+      {
+        text: "12345",
+        href: "/inspections/12345"
+      },
+      {
+        text: "Day 1",
+        href: "#"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">
+        Day 1
+      </h1>
+
+      {{ govukTable({
+        caption: "Day 1 evidence",
+        firstCellIsHeader: true,
+        captionClasses: "govuk-heading-m",
+        head: [
+          {
+            text: "Author",
+            classes: 'govuk-!-width-one-third'
+          },
+          {
+            text: "Last updated",
+            classes: 'govuk-!-width-one-third'
+          },
+          {
+            text: "Status",
+            classes: 'govuk-!-width-one-third'
+          }
+        ],
+        rows: [
+          [
+            {
+              html: "<a class='govuk-link' href='jane-smith'>Jane Smith</a>"
+            },
+            {
+              text: "10:03am, 9 December 2020"
+            },
+            {
+              html: govukTag({ text: "In progress", classes: "govuk-tag--blue" })
+            }
+          ],
+          [
+            {
+              html: "<a class='govuk-link' href='#'>Philip Sterling</a>"
+            },
+            {
+              text: "11:45am, 9 December 2020"
+            },
+            {
+              html: govukTag({ text: "Submitted", classes: "govuk-tag--green" })
+            }
+          ]
+        ]
+      }) }}
+
+
+    </div>
+  </div>
+
+{% endblock %}
