@@ -5,7 +5,7 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% block pageTitle %}
-  {{ data["evidence-day-1-title"] }} - Day 1 - 12345 - {{ serviceName }}
+  {{ data["evidence-day-1-tags"] }} - Day 1 - 12345 - {{ serviceName }}
 {% endblock %}
 
 {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
@@ -26,7 +26,7 @@
         href: "/inspections/12345/day-1/index"
       },
       {
-        text: data["evidence-day-1-title"],
+        text: data["evidence-day-1-tags"],
         href: "#"
       }
     ]
@@ -39,20 +39,39 @@
     <div class="govuk-grid-column-full">
       <span class="govuk-caption-m">Inspection 12345</span>
       <h1 class="govuk-heading-xl">
-        {{ data["evidence-day-1-title"] }}
+        All evidence tagged with "{{ data["evidence-day-1-tags"] }}"
       </h1>
-      <p class="govuk-body"><a class='govuk-link' href='/inspections/12345/day-1/form'>Edit this evidence</a></p>
+
+      {{ govukTable({
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: "Author"
+          },
+          {
+            text: "Last updated"
+          },
+          {
+            text: "Actions"
+          }
+        ],
+        rows: [
+          [
+            {
+              html: "<a class='govuk-link' href='/inspections/12345/day-1/evidence-1'>" + data["evidence-day-1-title"] + "</a>"
+            },
+            {
+              text: "10:03am, 9 December 2020"
+            },
+            {
+              html: "<a class='govuk-link' href='/inspections/12345/day-1/form'>Edit</a>"
+            }
+          ]
+        ]
+      }) }}
     </div>
 
 
-    <div class="govuk-grid-column-two-thirds">
-      <p class="govuk-body">{{ data["evidence-day-1"] }}</p>
-    </div>
-
-    <div class="govuk-grid-column-one-third">
-      <h2 class="govuk-heading-m">Tags</h2>
-      <a class="govuk-link" href="/inspections/12345/tag">{{ data["evidence-day-1-tags"] }}</a>
-    </div>
 
   </div>
 
