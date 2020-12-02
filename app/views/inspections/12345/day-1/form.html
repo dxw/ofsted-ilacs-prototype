@@ -52,6 +52,19 @@
           }
         }) }}
 
+        {{ govukInput({
+          label: {
+            text: "Tags",
+            classes: "govuk-label--s"
+          },
+          id: "evidence-day-1-tags",
+          name: "evidence-day-1-tags",
+          value: data["evidence-day-1-tags"],
+          hint: {
+            text: "Comma-separated"
+          }
+        }) }}
+
         {{ govukButton({
           text: "Save your evidence"
         }) }}
