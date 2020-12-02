@@ -1,0 +1,65 @@
+
+{% extends "layout.html" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  Add your evidence for day 1 - 12345 - {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/inspections/12345/"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <span class="govuk-caption-m">Inspection 12345</span>
+      <h1 class="govuk-heading-xl">
+        Add your evidence for day 1
+      </h1>
+
+      <form class="form" action="/inspections/12345/" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "Title",
+            classes: "govuk-label--s"
+          },
+          id: "evidence-day-1-title",
+          name: "evidence-day-1-title",
+          value: data["evidence-day-1-title"],
+          hint: {
+            text: "A meaningful title will help you navigate your evidence later on"
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "evidence-day-1",
+          id: "evidence-day-1",
+          rows: "15",
+          value: data["evidence-day-1"],
+          label: {
+            text: "Evidence",
+            classes: "govuk-label--s",
+            isPageHeading: true
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Save your evidence"
+        }) }}
+
+      </form>
+
+
+    </div>
+  </div>
+
+{% endblock %}

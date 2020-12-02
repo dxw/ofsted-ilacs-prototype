@@ -1,0 +1,56 @@
+
+{% extends "layout.html" %}
+
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  {{ data["evidence-day-1-title"] }} - Day 1 - 12345 - {{ serviceName }}
+{% endblock %}
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "My dashboard",
+        href: "/dashboard"
+      },
+      {
+        text: "12345",
+        href: "/inspections/12345"
+      },
+      {
+        text: "Day 1",
+        href: "/inspections/12345/day-1/index"
+      },
+      {
+        text: data["evidence-day-1-title"],
+        href: "#"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <span class="govuk-caption-m">Inspection 12345</span>
+      <h1 class="govuk-heading-xl">
+        {{ data["evidence-day-1-title"] }}
+      </h1>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body">{{ data["evidence-day-1"] }}</p>
+    </div>
+
+    <!-- <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m">Tags</h2>
+    </div> -->
+
+  </div>
+
+{% endblock %}
