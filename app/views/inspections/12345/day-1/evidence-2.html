@@ -1,0 +1,62 @@
+
+{% extends "layout.html" %}
+
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block pageTitle %}
+  A piece of day 2 evidence - Day 2 - 12345 - {{ serviceName }}
+{% endblock %}
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "My dashboard",
+        href: "/dashboard"
+      },
+      {
+        text: "12345",
+        href: "/inspections/12345"
+      },
+      {
+        text: "Day 2",
+        href: "/inspections/12345/#day-2"
+      },
+      {
+        text: "A piece of day 2 evidence",
+        href: "#"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <span class="govuk-caption-m">Inspection 12345</span>
+      <h1 class="govuk-heading-xl">
+        A piece of day 2 evidence
+      </h1>
+      <p class="govuk-body"><a class='govuk-link' href='/inspections/12345/day-2/form'>Edit this evidence</a></p>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body">Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Maecenas faucibus mollis interdum. Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+
+      <p class="govuk-body">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit sit amet non magna. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec ullamcorper nulla non metus auctor fringilla.</p>
+
+      <p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m">Tags</h2>
+      <p class="govuk-body"><a class="govuk-link" href="/inspections/12345/tag">Discipline</a>, <a class="govuk-link" href="/inspections/12345/tag">Materials</a></p>
+    </div>
+
+  </div>
+
+{% endblock %}
