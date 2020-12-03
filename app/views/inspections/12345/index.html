@@ -33,11 +33,6 @@
         Inspection 12345
       </h1>
 
-
-
-
-
-
       {% set day1 %}
         <h2 class="govuk-heading-l">Day 1</h2>
         {% if data["evidence-day-1"] %}
@@ -48,22 +43,25 @@
             captionClasses: "govuk-heading-s",
             head: [
               {
-                text: "Title",
-                classes: 'govuk-!-width-one-third'
+                text: "Title"
               },
               {
-                text: "Last updated",
-                classes: 'govuk-!-width-one-third'
+                text: "Author"
               },
               {
-                text: "Actions",
-                classes: 'govuk-!-width-one-third'
+                text: "Last updated"
+              },
+              {
+                text: "Actions"
               }
             ],
             rows: [
               [
                 {
                   html: "<a class='govuk-link' href='/inspections/12345/day-1/evidence-1'>" + data["evidence-day-1-title"] + "</a>"
+                },
+                {
+                  html: "<a class='govuk-link' href='#'>Beth Castles</a>"
                 },
                 {
                   text: "10:03am, 9 December 2020"
@@ -82,7 +80,7 @@
         {% endif %}
 
         {{ govukButton({
-          text: "Add evidence for day 1",
+          text: "Add evidence",
           href: "/inspections/12345/day-1/form"
         }) }}
 
@@ -90,7 +88,75 @@
 
       {% set day2 %}
         <h2 class="govuk-heading-l">Day 2</h2>
-        <p>No evidence submitted</p>
+
+        {{ govukTable({
+          caption: "Day 2 evidence",
+          firstCellIsHeader: true,
+          captionClasses: "govuk-heading-s",
+          head: [
+            {
+              text: "Title"
+            },
+            {
+              text: "Author"
+            },
+            {
+              text: "Last updated"
+            },
+            {
+              text: "Actions"
+            }
+          ],
+          rows: [
+            [
+              {
+                html: "<a class='govuk-link' href='#'>Aenean Pharetra Sem Adipiscing</a>"
+              },
+              {
+                html: "<a class='govuk-link' href='#'>Jane Smith</a>"
+              },
+              {
+                text: "11:26am, 10 December 2020"
+              },
+              {
+                html: "<a class='govuk-link' href='#'>View</a>"
+              }
+            ],
+            [
+              {
+                html: "<a class='govuk-link' href='#'>Ligula Adipiscing Mattis</a>"
+              },
+              {
+                html: "<a class='govuk-link' href='#'>Damian Sterling</a>"
+              },
+              {
+                text: "1:00pm, 10 December 2020"
+              },
+              {
+                html: "<a class='govuk-link' href='#'>View</a>"
+              }
+            ],
+            [
+              {
+                html: "<a class='govuk-link' href='#'>A piece of day 2 evidence</a>"
+              },
+              {
+                html: "<a class='govuk-link' href='#'>Beth Castles</a>"
+              },
+              {
+                text: "4:42pm, 10 December 2020"
+              },
+              {
+                html: "<a class='govuk-link' href='#'>Edit</a>"
+              }
+            ]
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Add evidence",
+          href: "#"
+        }) }}
       {% endset -%}
 
       {% set day3 %}
