@@ -3,6 +3,7 @@
 
 {% from "govuk/components/table/macro.njk" import govukTable %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
 
 {% block pageTitle %}
   A piece of day 2 evidence - Day 2 - 12345 - {{ serviceName }}
@@ -52,9 +53,32 @@
     </div>
 
     <div class="govuk-grid-column-one-third">
+      {{ govukSelect({
+        id: "yourEvidence",
+        name: "yourEvidence",
+        label: {
+          text: "Your evidence",
+          classes: "govuk-heading-m"
+        },
+        items: [
+          {
+            value: "#",
+            text: "Vehicula Inceptos Sit",
+            selected: true
+          },
+          {
+            value: "#",
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+          },
+          {
+            value: "#",
+            text: "Sit Vehicula Elit Ipsum"
+          }
+        ]
+      }) }}
       <h2 class="govuk-heading-m">Author</h2>
       <p class="govuk-body"><a class="govuk-link" href="/inspections/12345/tag">Damian Sterling</a></p>
-      <h2 class="govuk-heading-m">Tags</h2>
+      <h2 class="govuk-heading-s">Tags for this evidence</h2>
       <p class="govuk-body"><a class="govuk-link" href="/inspections/12345/tag">Discipline</a>, <a class="govuk-link" href="/inspections/12345/tag">Materials</a></p>
     </div>
 

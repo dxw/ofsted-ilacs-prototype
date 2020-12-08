@@ -4,6 +4,7 @@
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
 
 {% block pageTitle %}
   Add your evidence for day 2 - 12345 - {{ serviceName }}
@@ -76,39 +77,35 @@
     </div>
 
     <div class="govuk-grid-column-one-third">
-      <div class="sidebar">
-        <h2 class="govuk-heading-m">Your evidence</h2>
-        <h3 class="govuk-heading-s">Day 1</h3>
-        <ul class="govuk-list">
-          <li>
-            <a class="govuk-link" href="#">Cursus Mattis Sem</a>
-          </li>
-          <li>
-            <a class="govuk-link" href="#">Justo Consectetur Nibh Egestas</a>
-          </li>
-          <li>
-            <a class="govuk-link" href="#">Purus Tristique</a>
-          </li>
-          <li>
-            <a class="govuk-link" href="#">Sit Egestas Purus Porta Vestibulum</a>
-          </li>
-        </ul>
-        <h3 class="govuk-heading-s">Day 2</h3>
-        <ul class="govuk-list">
-          <li>
-            <a class="govuk-link" href="#">Cursus Mattis Sem</a>
-          </li>
-          <li>
-            <a class="govuk-link" href="#">Justo Consectetur Nibh Egestas</a>
-          </li>
-          <li>
-            <a class="govuk-link" href="#">Purus Tristique</a>
-          </li>
-          <li>
-            <a class="govuk-link" href="#">Sit Egestas Purus Porta Vestibulum</a>
-          </li>
-        </ul>
-      </div>
+
+        {{ govukSelect({
+          id: "yourEvidence",
+          name: "yourEvidence",
+          label: {
+            text: "Your evidence",
+            classes: "govuk-heading-m"
+          },
+          items: [
+            {
+              value: "published",
+              text: "Maths class observations"
+            },
+            {
+              value: "updated",
+              text: "Recently updated",
+              selected: true
+            },
+            {
+              value: "views",
+              text: "Most views"
+            },
+            {
+              value: "comments",
+              text: "Most comments"
+            }
+          ]
+        }) }}
+
     </div>
 
   </div>
