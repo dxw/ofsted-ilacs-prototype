@@ -41,7 +41,10 @@
       <h1 class="govuk-heading-xl">
         {{ data["evidence-day-1-title"] }}
       </h1>
-      <p class="govuk-body"><a class='govuk-link' href='/inspections/12345/day-1/form'>Edit this evidence</a></p>
+      {{ govukButton({
+        text: "Edit this evidence",
+        href: "/inspections/12345/day-1/form"
+      }) }}
     </div>
 
 

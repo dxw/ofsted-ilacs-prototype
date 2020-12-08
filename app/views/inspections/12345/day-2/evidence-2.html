@@ -41,7 +41,10 @@
       <h1 class="govuk-heading-xl">
         A piece of day 2 evidence
       </h1>
-      <p class="govuk-body"><a class='govuk-link' href='/inspections/12345/day-2/form'>Edit this evidence</a></p>
+      {{ govukButton({
+        text: "Edit this evidence",
+        href: "/inspections/12345/day-2/form"
+      }) }}
     </div>
 
     <div class="govuk-grid-column-two-thirds">
